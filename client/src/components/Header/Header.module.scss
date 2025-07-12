@@ -1,0 +1,76 @@
+@use '../../styles/variables' as *;
+
+.header {
+  background-color: $background-light;
+  box-shadow: $shadow-sm;
+  padding: $spacing-md 0;
+  position: sticky;
+  top: 0;
+  z-index: $z-index-sticky;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logoLink {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.logoText {
+  font-family: $font-family-heading;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  line-height: 1;
+  color: $primary-color;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, $primary-color, $primary-dark);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logoSubtext {
+  font-size: $font-size-xs;
+  color: $text-secondary;
+  margin-top: -2px;
+}
+
+@media (max-width: $breakpoint-md) {
+  .header {
+    padding: $spacing-sm 0;
+  }
+
+  .headerContent {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    margin-bottom: 0;
+  }
+
+  .logoText {
+    font-size: $font-size-md;
+    letter-spacing: 0.3px;
+  }
+
+  .logoSubtext {
+    display: none;
+  }
+}

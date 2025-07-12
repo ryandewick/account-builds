@@ -1,0 +1,199 @@
+@use '../../styles/variables' as *;
+
+.buildsPage {
+  width: 100%;
+}
+
+.pageHeader {
+  margin-bottom: $spacing-xl;
+  text-align: center;
+}
+
+.pageTitle {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-sm;
+  color: $text-primary;
+}
+
+.pageDescription {
+  font-size: $font-size-md;
+  color: $text-secondary;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.filtersContainer {
+  margin-bottom: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+
+  @media (min-width: $breakpoint-md) {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.searchContainer {
+  flex: 1;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: $spacing-xl;
+  margin-bottom: $spacing-xl;
+  gap: $spacing-md;
+}
+
+.paginationButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid $border-light;
+  border-radius: $border-radius-md;
+  background-color: $background-light;
+  color: $text-primary;
+  cursor: pointer;
+  transition: $transition-base;
+
+  &:hover:not(:disabled) {
+    background-color: $background-gray;
+    border-color: $border-medium;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.pageNumbers {
+  display: flex;
+  gap: $spacing-xs;
+}
+
+.pageNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid $border-light;
+  border-radius: $border-radius-md;
+  background-color: $background-light;
+  color: $text-primary;
+  font-size: $font-size-sm;
+  cursor: pointer;
+  transition: $transition-base;
+
+  &:hover:not(.activePage) {
+    background-color: $background-gray;
+    border-color: $border-medium;
+  }
+
+  &.activePage {
+    background-color: $primary-color;
+    border-color: $primary-color;
+    color: $text-white;
+    font-weight: $font-weight-medium;
+  }
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-2xl 0;
+  color: $text-secondary;
+}
+
+.loadingSpinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba($primary-color, 0.2);
+  border-top-color: $primary-color;
+  border-radius: 50%;
+  margin-bottom: $spacing-md;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.errorContainer {
+  text-align: center;
+  padding: $spacing-2xl 0;
+}
+
+.errorMessage {
+  color: $error-color;
+  margin-bottom: $spacing-md;
+  font-weight: $font-weight-medium;
+}
+
+.resultsInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-lg;
+  padding-bottom: $spacing-md;
+  border-bottom: 1px solid $border-light;
+
+  p {
+    margin: 0;
+    color: $text-secondary;
+    font-style: italic;
+  }
+}
+
+.clearFilters {
+  background: none;
+  border: none;
+  color: $primary-color;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  transition: $transition-base;
+
+  &:hover {
+    background-color: rgba($primary-color, 0.1);
+    text-decoration: underline;
+  }
+}
+
+.buildsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $spacing-lg;
+  margin-bottom: $spacing-2xl;
+}
+
+@media (max-width: $breakpoint-md) {
+  .filterButtons {
+    margin-top: $spacing-sm;
+  }
+
+  .resultsInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-sm;
+  }
+
+  .buildsGrid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

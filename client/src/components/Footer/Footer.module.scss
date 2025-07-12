@@ -1,0 +1,74 @@
+@use '../../styles/variables' as *;
+
+.footer {
+  background-color: $background-gray;
+  padding: $spacing-xl 0 $spacing-lg;
+  margin-top: $spacing-2xl;
+  border-top: 1px solid $border-light;
+}
+
+.footerContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+}
+
+.footerSection {
+  margin-bottom: $spacing-lg;
+}
+
+.footerHeading {
+  font-family: $font-family-heading;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.footerText {
+  color: $text-secondary;
+  font-size: $font-size-sm;
+  line-height: $line-height-base;
+  margin-bottom: $spacing-md;
+}
+
+.footerLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+  li {
+    margin-bottom: $spacing-sm;
+  }
+  
+  a {
+    color: $primary-color;
+    font-size: $font-size-sm;
+    text-decoration: none;
+    transition: $transition-base;
+    
+    &:hover {
+      color: $primary-dark;
+      text-decoration: underline;
+    }
+  }
+}
+
+.footerBottom {
+  padding-top: $spacing-md;
+  border-top: 1px solid $border-light;
+  text-align: center;
+}
+
+.copyright {
+  color: $text-light;
+  font-size: $font-size-xs;
+  margin: 0;
+}
+
+@media (max-width: $breakpoint-md) {
+  .footerContent {
+    grid-template-columns: 1fr;
+  }
+}

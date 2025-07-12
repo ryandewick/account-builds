@@ -1,0 +1,219 @@
+@use '../../styles/variables' as *;
+
+.step {
+  margin-bottom: $spacing-lg;
+  border-radius: $border-radius-md;
+  border: 1px solid $border-light;
+  background-color: $background-light;
+  box-shadow: $shadow-sm;
+  transition: $transition-base;
+  overflow: hidden;
+  
+  &.completed {
+    border-color: $secondary-color;
+    background-color: rgba($secondary-color, 0.05);
+    
+    .stepNumber {
+      background-color: $secondary-color;
+    }
+    
+    .stepTitle {
+      color: $secondary-dark;
+    }
+    
+    .checkboxLabel {
+      &::before {
+        border-color: $secondary-color;
+        background-color: $secondary-color;
+      }
+      
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.stepHeader {
+  display: flex;
+  align-items: flex-start;
+  padding: $spacing-md;
+  cursor: pointer;
+}
+
+.stepCheckbox {
+  margin-right: $spacing-md;
+  padding-top: 4px;
+}
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  
+  &:focus + .checkboxLabel::before {
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.2);
+  }
+}
+
+.checkboxLabel {
+  position: relative;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 22px;
+    height: 22px;
+    border: 2px solid $border-medium;
+    border-radius: $border-radius-sm;
+    background-color: $background-light;
+    transition: $transition-base;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 9px;
+    width: 6px;
+    height: 12px;
+    border: solid $text-white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: $transition-base;
+  }
+}
+
+.stepInfo {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+}
+
+.stepNumberContainer {
+  margin-right: $spacing-md;
+  flex-shrink: 0;
+}
+
+.stepNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: $primary-color;
+  color: $text-white;
+  border-radius: $border-radius-full;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-sm;
+}
+
+.stepTitle {
+  margin: 0;
+  padding-right: 30px;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  position: relative;
+  flex: 1;
+}
+
+.expandButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: transparent;
+  border: none;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-light;
+  cursor: pointer;
+  transition: $transition-base;
+  
+  svg {
+    transition: $transition-base;
+  }
+  
+  &.expanded svg {
+    transform: rotate(180deg);
+  }
+  
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.stepContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  
+  &.expanded {
+    max-height: 1000px; // Arbitrary large value
+    transition: max-height 0.5s ease-in;
+  }
+}
+
+.stepDescription {
+  padding: 0 $spacing-md $spacing-md calc(22px + #{$spacing-md} * 2 + 28px);
+  margin: 0;
+  color: $text-secondary;
+}
+
+.stepSection {
+  padding: $spacing-md $spacing-md $spacing-md calc(22px + #{$spacing-md} * 2 + 28px);
+  border-top: 1px solid $border-light;
+}
+
+.stepSectionTitle {
+  margin: 0 0 $spacing-sm 0;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+}
+
+.stepSectionContent {
+  margin: 0;
+  color: $text-secondary;
+}
+
+.stepLink {
+  display: inline-flex;
+  align-items: center;
+  color: $primary-color;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  transition: $transition-base;
+  
+  &:hover {
+    color: $primary-dark;
+    text-decoration: underline;
+  }
+}
+
+.linkIcon {
+  margin-right: $spacing-xs;
+}
+
+@media (max-width: $breakpoint-md) {
+  .stepHeader {
+    padding: $spacing-sm;
+  }
+  
+  .stepDescription,
+  .stepSection {
+    padding-left: calc(22px + #{$spacing-sm} * 2 + 28px);
+    padding-right: $spacing-sm;
+  }
+}

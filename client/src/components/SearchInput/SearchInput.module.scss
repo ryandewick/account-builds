@@ -1,0 +1,109 @@
+@use '../../styles/variables' as *;
+
+.searchContainer {
+  margin-bottom: $spacing-lg;
+}
+
+.searchLabel {
+  display: block;
+  margin-bottom: $spacing-sm;
+  font-weight: $font-weight-medium;
+  color: $text-primary;
+}
+
+.searchInput {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid $border-medium;
+  border-radius: $border-radius-md;
+  background-color: $background-light;
+  transition: $transition-base;
+  overflow: hidden;
+
+  &.focused {
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+  }
+}
+
+.searchIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: $spacing-md;
+  color: $text-light;
+}
+
+.searchIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.input {
+  flex: 1;
+  height: 48px;
+  padding: 0 $spacing-md;
+  border: none;
+  background: transparent;
+  font-size: $font-size-base;
+  color: $text-primary;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $text-light;
+  }
+}
+
+.clearButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin-right: $spacing-xs;
+  background: transparent;
+  border: none;
+  border-radius: $border-radius-full;
+  color: $text-light;
+  cursor: pointer;
+  transition: $transition-base;
+
+  &:hover {
+    background-color: $background-gray;
+    color: $text-primary;
+  }
+}
+
+.searchButton {
+  padding: 0 $spacing-lg;
+  background-color: $primary-color;
+  color: $text-white;
+  border: none;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: $transition-base;
+  white-space: nowrap;
+  margin: 0; /* Ensure no margin */
+  align-self: stretch; /* Make button stretch to fill container height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover,
+  &:focus {
+    background-color: $primary-dark;
+    outline: none;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .searchButton {
+    padding: 0 $spacing-md;
+  }
+}

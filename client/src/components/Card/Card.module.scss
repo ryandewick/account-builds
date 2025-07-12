@@ -1,0 +1,169 @@
+@use '../../styles/variables' as *;
+
+.card {
+  border-radius: $border-radius-md;
+  border: 1px solid $border-light;
+  overflow: hidden;
+  background-color: $background-light;
+  box-shadow: $shadow-sm;
+  transition: $transition-base;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: $shadow-md;
+    transform: translateY(-4px);
+  }
+
+  &:focus {
+    outline: 3px solid $primary-color;
+    outline-offset: 2px;
+    box-shadow: $shadow-md;
+  }
+
+  /* High contrast mode focus styles */
+  @media (forced-colors: active) {
+    &:focus {
+      outline: 3px solid CanvasText;
+    }
+  }
+}
+
+.cardHeader {
+  padding: $spacing-lg;
+  position: relative;
+}
+
+.cardTitle {
+  margin: 0;
+  color: whitesmoke;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+}
+
+.cardBody {
+  padding: $spacing-lg;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardDescription {
+  margin-bottom: $spacing-md;
+  color: #4b5563; /* Darker gray for better contrast (4.5:1 ratio with white background) */
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+}
+
+.cardMeta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
+}
+
+.cardBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.difficultyEasy {
+  background-color: #e6f7ef; /* Darker background for better contrast */
+  color: #166534; /* Darker green for better contrast with background */
+  border: 1px solid #166534; /* Add border for better visibility */
+}
+
+.difficultyMedium {
+  background-color: #fef3c7; /* Darker background for better contrast */
+  color: #854d0e; /* Darker amber for better contrast with background */
+  border: 1px solid #854d0e; /* Add border for better visibility */
+}
+
+.difficultyHard {
+  background-color: #fee2e2; /* Darker background for better contrast */
+  color: #991b1b; /* Darker red for better contrast with background */
+  border: 1px solid #991b1b; /* Add border for better visibility */
+}
+
+.cardTime {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  color: #525252; /* Darker gray for better contrast (4.5:1 ratio with white background) */
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium; /* Slightly bolder for better readability */
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+  margin-top: auto;
+  padding-top: $spacing-md;
+}
+
+.cardTag {
+  display: inline-block;
+  padding: $spacing-xs $spacing-sm;
+  background-color: $background-gray;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-xs;
+  color: #4b5563; /* Darker gray for better contrast (4.5:1 ratio with light gray background) */
+  font-weight: $font-weight-medium; /* Slightly bolder for better readability */
+  border: 1px solid #d1d5db; /* Light border for better definition */
+}
+
+.cardFooter {
+  padding: $spacing-md $spacing-lg;
+  border-top: 1px solid $border-light;
+  background-color: $background-off-white;
+}
+
+.cardButton {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  background-color: $primary-color;
+  color: $text-white;
+  border: 2px solid transparent;
+  border-radius: $border-radius-md;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: $transition-base;
+  position: relative;
+
+  &:hover {
+    background-color: $primary-dark;
+  }
+
+  &:focus {
+    background-color: $primary-dark;
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba($primary-color, 0.3);
+  }
+
+  /* High contrast mode focus styles */
+  @media (forced-colors: active) {
+    &:focus {
+      outline: 2px solid CanvasText;
+      outline-offset: 2px;
+    }
+  }
+}
