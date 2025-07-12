@@ -1,6 +1,27 @@
-# Getting Started with Create React App
+# Account Builds Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend client for the Account Builds application. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Connecting to a Deployed Backend
+
+To connect to a deployed backend server, you need to update the environment variables:
+
+1. Create a `.env` file in the client directory with the following content:
+   ```
+   REACT_APP_API_BASE_URL=http://localhost:5050/api
+   ```
+
+2. For production, create a `.env.production` file with your deployed backend URL:
+   ```
+   REACT_APP_API_BASE_URL=https://your-backend-url.com/api
+   ```
+
+3. Build the production version of the client:
+   ```
+   npm run build
+   ```
+
+4. Deploy the built client to your hosting provider of choice (Netlify, Vercel, GitHub Pages, etc.).
 
 ## Available Scripts
 
