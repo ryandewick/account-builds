@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: account-builds-backend
+    env: node
+    rootDir: server
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DB_HOST
+        fromDatabase:
+          name: account-builds-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: account-builds-db
+          property: port
+      - key: DB_USER
+        fromDatabase:
+          name: account-builds-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: account-builds-db
+          property: password
+      - key: DB_DATABASE
+        fromDatabase:
+          name: account-builds-db
+          property: database
+
+databases:
+  - name: account-builds-db
+    databaseName: account_builds
+    user: account_builds_user
