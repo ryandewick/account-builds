@@ -13,6 +13,10 @@ const PORT = process.env.PORT || 5050;
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (_req, res) => {
+  res.send("🎉 Backend is running!");
+});
+
 // GET all builds
 app.get("/api/builds", async (req: Request, res: Response) => {
   try {
